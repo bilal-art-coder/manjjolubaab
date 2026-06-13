@@ -23,7 +23,7 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
 .l-logo{font-family:'Bebas Neue',cursive;font-size:clamp(3.5rem,8vw,6rem);color:#D4AF37;letter-spacing:.28em;display:flex;gap:.05em;overflow:hidden;line-height:1;}
 .l-logo span{display:inline-block;transform:translateY(110%);transition:transform .6s cubic-bezier(.23,1,.32,1);}
 .l-logo span.show{transform:translateY(0);}
-.l-sub{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.45em;color:#2a2a2a;text-transform:uppercase;font-weight:700;margin-top:8px;opacity:0;transition:opacity .8s ease .7s;}
+.l-sub{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.45em;color:#fff;text-transform:uppercase;font-weight:700;margin-top:8px;opacity:0;transition:opacity .8s ease .7s;}
 .l-sub.show{opacity:1;}
 .l-track{width:160px;height:1px;background:#151515;margin-top:28px;overflow:hidden;}
 .l-fill{height:100%;width:0%;background:#D4AF37;transition:width 1.8s cubic-bezier(.23,1,.32,1);}
@@ -69,6 +69,27 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
 .card img{transition:transform .6s cubic-bezier(.23,1,.32,1);}
 .card:hover img{transform:scale(1.06);}
 
+
+/* FOOD / DEAL CARDS (matched to reference design) */
+.food-card{background:#0b0b0b;border:1px solid #1b1b1b;border-radius:16px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,0,.34);transition:transform .35s cubic-bezier(.23,1,.32,1),border-color .3s,box-shadow .35s;}
+.food-card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.38);box-shadow:0 22px 50px rgba(0,0,0,.62),0 0 0 1px rgba(212,175,55,.06);}
+.food-card-media{position:relative;height:205px;overflow:hidden;background:#111;}
+.food-card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.23,1,.32,1),filter .35s;}
+.food-card:hover .food-card-media img{transform:scale(1.045);filter:saturate(1.06);}
+.food-card-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.02) 0%,rgba(0,0,0,.05) 42%,rgba(0,0,0,.72) 78%,#080808 100%);}
+.food-badge{position:absolute;top:14px;left:16px;background:#D4AF37;color:#050505;font-size:.68rem;font-weight:900;padding:8px 18px;border-radius:9999px;letter-spacing:.15em;text-transform:uppercase;box-shadow:0 5px 16px rgba(0,0,0,.35);line-height:1;}
+.food-deal-title{position:absolute;left:18px;bottom:24px;font-family:'Bebas Neue',cursive;font-size:2.05rem;color:rgba(255,255,255,.72);letter-spacing:.1em;line-height:1;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.55);}
+.food-brand{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);font-family:'Bebas Neue',cursive;font-size:2rem;color:#F0D34D;letter-spacing:.15em;line-height:1;text-transform:uppercase;text-shadow:0 2px 14px rgba(0,0,0,.75);}
+.food-item-title{position:absolute;left:16px;right:16px;bottom:42px;font-family:'Bebas Neue',cursive;font-size:1.45rem;color:rgba(255,255,255,.82);letter-spacing:.06em;line-height:1;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.food-card.menu-style .food-brand{font-size:1.55rem;bottom:14px;}
+.food-card.menu-style .food-card-media{height:185px;}
+.food-card-body{padding:16px 18px 18px;background:#0b0b0b;}
+.food-desc{color:#3f3f3f;font-size:.9rem;line-height:1.55;margin-bottom:22px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.food-card-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.food-price{font-family:'Bebas Neue',cursive;font-size:2.12rem;font-weight:700;color:#F0C94A;letter-spacing:.02em;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,.35);}
+.food-add{width:auto;min-width:78px;background:#D4AF37;color:#050505;font-family:'DM Sans',sans-serif;font-weight:900;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;padding:13px 15px;border:none;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all .28s;box-shadow:0 5px 14px rgba(0,0,0,.28);}
+.food-add:hover{background:#FFE57C;transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,175,55,.35);}
+
 /* TABS */
 .tabs-bar{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;}
 .tabs-bar::-webkit-scrollbar{display:none;}
@@ -110,8 +131,24 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
   .loc-grid{grid-template-columns:1fr!important;}
   .footer-grid{grid-template-columns:repeat(2,1fr)!important;gap:28px!important;}
   .deal-grid .card{border-radius:12px!important;}
+  .deal-grid .food-card{border-radius:12px!important;}
   .menu-grid .card{border-radius:12px!important;}
   .deal-grid .card img,.menu-grid .card img{height:130px!important;}
+  .deal-grid .food-card-media{height:135px!important;}
+  .deal-grid .food-card-body{padding:11px 12px 12px!important;}
+  .deal-grid .food-deal-title{font-size:1.25rem!important;left:12px!important;bottom:17px!important;}
+  .deal-grid .food-brand{font-size:1.28rem!important;bottom:12px!important;}
+  .deal-grid .food-badge{font-size:.5rem!important;padding:5px 10px!important;top:9px!important;left:10px!important;}
+  .deal-grid .food-desc{font-size:.62rem!important;margin-bottom:12px!important;}
+  .deal-grid .food-price{font-size:1.35rem!important;}
+  .deal-grid .food-add{min-width:58px!important;padding:9px 10px!important;font-size:.62rem!important;border-radius:7px!important;}
+  .menu-grid .food-card.menu-style .food-card-media{height:135px!important;}
+  .menu-grid .food-card-body{padding:11px 12px 12px!important;}
+  .menu-grid .food-item-title{font-size:1.05rem!important;bottom:34px!important;left:10px!important;right:10px!important;}
+  .menu-grid .food-card.menu-style .food-brand{font-size:1.18rem!important;bottom:11px!important;}
+  .menu-grid .food-desc{font-size:.62rem!important;margin-bottom:12px!important;white-space:normal!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;}
+  .menu-grid .food-price{font-size:1.22rem!important;}
+  .menu-grid .food-add{min-width:58px!important;padding:9px 10px!important;font-size:.62rem!important;border-radius:7px!important;}
   .deal-grid .card .btn-add,.menu-grid .card .btn-add{font-size:.65rem!important;padding:7px 8px!important;border-radius:6px!important;}
   .deal-grid .card{padding:0!important;}
   .deal-grid .card .tag{font-size:.55rem!important;padding:3px 8px!important;}
@@ -126,6 +163,10 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
   .hero-price-box-wrap{display:none!important;}
 }
 @media(min-width:769px){.mobile-only{display:none!important;}}
+@media(max-width:560px){
+  #vd-grid{grid-template-columns:1fr!important;}
+}
+
 
 /* TOAST */
 #add-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a1a;border:1px solid rgba(212,175,55,.4);color:#D4AF37;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;padding:12px 24px;border-radius:12px;z-index:2000;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;white-space:nowrap;box-shadow:0 8px 30px rgba(0,0,0,.5);}
@@ -138,6 +179,9 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
 .pizza-size-btn.active{background:rgba(212,175,55,.12);border-color:#D4AF37;color:#D4AF37;}
 .pizza-size-btn .size-label{display:block;font-size:.72rem;font-weight:800;}
 .pizza-size-btn .size-price{display:block;font-size:.62rem;color:#555;margin-top:1px;}
+
+
+
 </style>
 </head>
 <body>
@@ -174,8 +218,8 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
     </div>
     <div style="display:flex;align-items:center;gap:0px;cursor:pointer;" onclick="window.scrollTo({top:0,behavior:'smooth'})">
       <div>
-        <div style="font-family:'Bebas Neue',cursive;font-size:2.4rem;color:#D4AF37;letter-spacing:.2em;line-height:1;">MANJJO</div>
-        <div style="font-size:.82rem;color:#fff;letter-spacing:.32em;text-transform:uppercase;font-weight:700;margin-top:4px;">LUBAAB</div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:1.55rem;color:#D4AF37;letter-spacing:.2em;line-height:1;">MANJJO</div>
+        <div style="font-size:.52rem;color:#fff;letter-spacing:.32em;text-transform:uppercase;font-weight:700;margin-top:1px;">LUBAAB</div>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:10px;">
@@ -327,7 +371,7 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
       <h2 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.4rem,5vw,4.2rem);letter-spacing:.05em;color:#fff;line-height:1.02;margin:4px 0;">MANJJO <span class="text-gg">BIG DEALS</span></h2>
       <p style="color:#555;max-width:460px;margin:14px auto 0;font-size:.9rem;line-height:1.75;">Incredible value bundles crafted to satisfy every craving.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;" id="vd-grid" class="deal-grid"></div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;" id="vd-grid" class="deal-grid"></div>
   </div>
 </section>
 
@@ -550,60 +594,60 @@ body{background:#0a0a0a;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:h
 const MENU = {
   burgers:[
     {name:'Butter Milk Fried Chicken',price:550,desc:'Crispy buttermilk fried chicken, fresh lettuce, house sauce on a brioche bun.',img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80'},
-    {name:'Chipotle Chicken Slider',price:550,desc:'Smoky chipotle glazed chicken, caramelised onions, pickles.',img:'https://images.unsplash.com/photo-1550317138-10000687a72b?w=500&q=80'},
-    {name:'Buffalo Chicken Crunch',price:550,desc:'Spicy buffalo sauce, crispy chicken, ranch, crunchy slaw.',img:'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500&q=80'},
+    {name:'Chipotle Chicken Slider',price:550,desc:'Smoky chipotle glazed chicken, caramelised onions, pickles.',img:'https://kimi-web-img.moonshot.cn/img/i.ytimg.com/8c5a6a44acda673afdf22cc26602e65821ad1132.jpg'},
+    {name:'Buffalo Chicken Crunch',price:550,desc:'Spicy buffalo sauce, crispy chicken, ranch, crunchy slaw.',img:'https://kimi-web-img.moonshot.cn/img/cookingwithcocktailrings.com/ae8999be9e15a57af117fb2558729b7f4e87c7d1.jpg'},
     {name:'Manjjo Special Burger',price:550,desc:'Signature patty, house sauce, aged cheddar, fresh veggies.',img:'https://images.unsplash.com/photo-1586816001966-79b736744398?w=500&q=80'},
     {name:'Manjjo Smash Beef',price:770,desc:'Double-smashed wagyu patty, caramelised onions, American cheese.',img:'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&q=80',badge:'BEST SELLER'},
   ],
   sandwiches:[
-    {name:'Char Grilled Chicken',price:680,desc:'Flame-grilled chicken, smoky peppers, pesto mayo, ciabatta.',img:'https://images.unsplash.com/photo-1539252554453-80ab65ce3586?w=500&q=80'},
-    {name:'Peri Peri Grilled Chicken',price:680,desc:'Spicy peri peri chicken, avocado, fresh tomato, toasted bun.',img:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=500&q=80'},
-    {name:'Chicken Fajita Sandwich',price:680,desc:'Sizzling fajita chicken, bell peppers, jalapeños, chipotle.',img:'https://images.unsplash.com/photo-1528736235302-52922df5c122?w=500&q=80'},
+    {name:'Char Grilled Chicken Sandwich',price:680,desc:'Flame-grilled chicken, smoky peppers, pesto mayo, ciabatta.',img:'https://kimi-web-img.moonshot.cn/img/www.easyhomemeals.com/7cb1b89654f40b626f5bec8f8c1c6ae3f725793f.jpg'},
+    {name:'Peri Peri Grilled Chicken Sandwich',price:680,desc:'Spicy peri peri chicken, avocado, fresh tomato, toasted bun.',img:'https://kimi-web-img.moonshot.cn/img/somethingaboutsandwiches.com/f7dc7cabd2293e9a32a8f5c4f69435d134876bca.jpg'},
+    {name:'Chicken Fajita Sandwich',price:680,desc:'Sizzling fajita chicken, bell peppers, jalapeños, chipotle.',img:'https://kimi-web-img.moonshot.cn/img/www.ourhappymess.com/5ea92cc1cda069d6f80802f04385fb1a38650615.jpg'},
     {name:'Chicken Steak Sandwich',price:680,desc:'Grilled chicken steak, mushroom sauce, buttered bread.',img:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80'},
-    {name:'Philly Cheese Steak',price:680,desc:'Shaved beef, provolone, caramelised onions, peppers.',img:'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=500&q=80',badge:'FAN FAV'},
+    {name:'Philly Cheese Steak Sandwich',price:680,desc:'Shaved beef, provolone, caramelised onions, peppers.',img:'https://kimi-web-img.moonshot.cn/img/thecozycook.com/97a6ff7497bedfef7db6409a5a9583e94f52b27e.jpg',badge:'FAN FAV'},
   ],
   wraps:[
     {name:'Manjjo Crispy Chicken Wrap',price:550,desc:'Golden crispy chicken, fresh greens, honey mustard drizzle.',img:'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=500&q=80'},
-    {name:'Peri Peri Grilled Wrap',price:550,desc:'Flame-grilled peri chicken, fresh veggies, creamy sauce.',img:'https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&q=80'},
+    {name:'Peri Peri Grilled Chicken Wrap',price:550,desc:'Flame-grilled peri chicken, fresh veggies, creamy sauce.',img:'https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&q=80'},
     {name:'Grilled Chicken Wrap',price:550,desc:'Classic grilled chicken, lettuce, tomato, garlic mayo.',img:'https://images.unsplash.com/photo-1561651823-35f70a5bdaec?w=500&q=80'},
-    {name:'Chicken Quesadilla',price:600,desc:'Crispy flour tortilla, melted cheese, spiced chicken filling.',img:'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&q=80',badge:'NEW'},
+    {name:'Chicken Quesadilla',price:600,desc:'Crispy flour tortilla, melted cheese, spiced chicken filling.',img:'https://kimi-web-img.moonshot.cn/img/www.onceuponachef.com/d3747ef226aedd7efc5f79ad8934ec40adb9cdc3.jpg',badge:'NEW'},
   ],
   pizzas:[
-    {name:'Flamin Tikka',price:600,sizes:{S:600,M:999,L:1600},desc:'Tikka masala base, premium chicken, bell peppers, 4-cheese blend.',img:'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80',badge:'BEST SELLER'},
-    {name:'Fajita Fiesta',price:600,sizes:{S:600,M:999,L:1600},desc:'Sizzling fajita chicken, peppers, corn, sour cream base.',img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80'},
-    {name:'Mushroom Melt',price:600,sizes:{S:600,M:999,L:1600},desc:'Wild mushrooms, truffle oil, mozzarella, garlic butter crust.',img:'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=80'},
+    {name:'Flamin Tikka Pizza',price:600,sizes:{S:600,M:999,L:1600},desc:'Tikka masala base, premium chicken, bell peppers, 4-cheese blend.',img:'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80',badge:'BEST SELLER'},
+    {name:'Fajita Fiesta Pizza',price:600,sizes:{S:600,M:999,L:1600},desc:'Sizzling fajita chicken, peppers, corn, sour cream base.',img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80'},
+    {name:'Mashroom Melt',price:600,sizes:{S:600,M:999,L:1600},desc:'Wild mushrooms, truffle oil, mozzarella, garlic butter crust.',img:'https://kimi-web-img.moonshot.cn/img/www.seriouseats.com/f667d8c94d82b52c9f905db2eade1daf4ff5ec21.jpg'},
     {name:'Manjjo Delight',price:600,sizes:{S:600,M:999,L:1600},desc:'Signature Manjjo sauce, loaded toppings, extra cheese.',img:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&q=80'},
     {name:'Cheese Lover',price:600,sizes:{S:600,M:999,L:1600},desc:'Five-cheese blend, creamy base, oregano, garlic oil.',img:'https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?w=500&q=80'},
     {name:'Creamy Tikka',price:600,sizes:{S:600,M:999,L:1500},desc:'Rich tikka cream sauce, spiced chicken, fresh coriander.',img:'https://images.unsplash.com/photo-1548369937-47519962c11a?w=500&q=80'},
     {name:'Creamy Fajita',price:600,sizes:{S:600,M:999,L:1500},desc:'Creamy white base, fajita chicken, jalapeños.',img:'https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&q=80'},
-    {name:'American Hot',price:600,sizes:{S:600,M:999,L:1600},desc:'Spicy pepperoni, hot sauce drizzle, jalapeños.',img:'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=500&q=80'},
+    {name:'America Hot',price:600,sizes:{S:600,M:999,L:1600},desc:'Spicy pepperoni, hot sauce drizzle, jalapeños.',img:'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=500&q=80'},
     {name:'Chicken Supreme',price:600,sizes:{S:600,M:999,L:1600},desc:'Loaded with premium chicken, peppers, onions, olives.',img:'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=500&q=80'},
     {name:'Pepperoni',price:600,sizes:{S:600,M:999,L:1600},desc:'Classic pepperoni, rich tomato sauce, mozzarella.',img:'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=500&q=80'},
     {name:'Heart Breaker',price:600,sizes:{S:600,M:999,L:1600},desc:'Extra spicy blend, ghost pepper sauce, loaded toppings.',img:'https://images.unsplash.com/photo-1520201163981-8cc95007dd2a?w=500&q=80',badge:'SPICY'},
-    {name:'Lazania',price:600,sizes:{S:600,M:999,L:1600},desc:'Lasagna-inspired beef & béchamel, layered flavours.',img:'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=500&q=80'},
-    {name:'Malai Boti',price:600,sizes:{S:600,M:999,L:1600},desc:'Creamy malai marinated chicken, mild spices, cheese.',img:'https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=500&q=80'},
+    {name:'Lazania Pizza',price:600,sizes:{S:600,M:999,L:1600},desc:'Lasagna-inspired beef & béchamel, layered flavours.',img:'https://kimi-web-img.moonshot.cn/img/www.simplyrecipes.com/3f0a35243187b15fc0c0010992210d978a6bf7e6.jpg'},
+    {name:'Malai Boti Pizza',price:600,sizes:{S:600,M:999,L:1600},desc:'Creamy malai marinated chicken, mild spices, cheese.',img:'https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=500&q=80'},
   ],
   shawarma:[
-    {name:'Arabic Chicken Shawarma',price:450,desc:'Slow-roasted spiced chicken, garlic sauce, fresh veggies in warm flatbread.',img:'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=500&q=80'},
-    {name:'Arabic Beef Shawarma',price:750,desc:'Slow-roasted marinated beef, crisp vegetables, tangy garlic sauce.',img:'https://images.unsplash.com/photo-1561651823-35f70a5bdaec?w=500&q=80',badge:'PREMIUM'},
+    {name:'Manjjo Arabic Chicken Shawarma',price:450,desc:'Slow-roasted spiced chicken, garlic sauce, fresh veggies in warm flatbread.',img:'https://kimi-web-img.moonshot.cn/img/thebutteryfairytale.com/7e63344d1def01f95f438e3958de124225d378a0.webp'},
+    {name:'Manjjo Arabic Beef Shawarma',price:750,desc:'Slow-roasted marinated beef, crisp vegetables, tangy garlic sauce.',img:'https://kimi-web-img.moonshot.cn/img/www.littlespicejar.com/61d21a3f245b26d9c8280339474a1698207d544d.jpg',badge:'PREMIUM'},
   ],
   fries:[
     {name:'Plain Fries',price:350,desc:'Golden crispy fries, lightly salted, served with dip.',img:'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&q=80'},
-    {name:'Masala Fries',price:400,desc:'Crispy fries tossed in our signature masala blend.',img:'https://images.unsplash.com/photo-1585109649139-366815a0d713?w=500&q=80'},
-    {name:'Loaded Fries',price:650,desc:'Fries topped with cheese sauce, jalapeños, pulled chicken.',img:'https://images.unsplash.com/photo-1610614819513-58e34989848b?w=500&q=80',badge:'BEST SELLER'},
+    {name:'Masala Fries',price:400,desc:'Crispy fries tossed in our signature masala blend.',img:'https://kimi-web-img.moonshot.cn/img/limethyme.com/55137305deae9f5bfa57dd50a9029495408ad112.jpg'},
+    {name:'Loaded Fries',price:650,desc:'Fries topped with cheese sauce, jalapeños, pulled chicken.',img:'https://kimi-web-img.moonshot.cn/img/eaternallyyours.com/42eaf5ebc6361cc94c459475fe4c68b6a5f88808.jpg',badge:'BEST SELLER'},
     {name:'Fish & Chips',price:850,desc:'Beer-battered fish fillet with thick-cut chips and tartar sauce.',img:'https://images.unsplash.com/photo-1579208570378-8c970854bc23?w=500&q=80'},
   ],
   starters:[
     {name:'Italian Club Sandwich',price:250,desc:'Triple-layered club with chicken, cheese, crispy bacon.',img:'https://images.unsplash.com/photo-1553909489-cd47e0907980?w=500&q=80'},
-    {name:'Spin Roll',price:200,desc:'Crispy rolled pastry filled with spiced spinach and cheese.',img:'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?w=500&q=80'},
-    {name:'Pizza Sandwich',price:1100,desc:'A giant pizza-sandwich hybrid, fully loaded.',img:'https://images.unsplash.com/photo-1528736235302-52922df5c122?w=500&q=80',badge:'BIG'},
+    {name:'Spin Roll',price:200,desc:'Crispy rolled pastry filled with spiced spinach and cheese.',img:'https://kimi-web-img.moonshot.cn/img/www.allrecipes.com/f401b6e8f0f78507ec1690e38056e35e199bce06.jpg'},
+    {name:'Pizza Sandwich',price:1100,desc:'A giant pizza-sandwich hybrid, fully loaded.',img:'https://kimi-web-img.moonshot.cn/img/www.girlgonegourmet.com/2ba5167f5a27edcd383a97b37fc6b66471b773c1.jpg',badge:'BIG'},
     {name:'Pocket Pizza',price:350,desc:'Mini pita pizza pockets with classic toppings.',img:'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=500&q=80'},
     {name:'Garlic Bread',price:110,desc:'Toasted baguette slices with garlic herb butter.',img:'https://images.unsplash.com/photo-1619535860434-cf9b902a0651?w=500&q=80'},
-    {name:'Healthy Platter',price:500,desc:'Fresh salad, grilled veggies, hummus, and pita wedges.',img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80'},
+    {name:'Healty Platter',price:500,desc:'Fresh salad, grilled veggies, hummus, and pita wedges.',img:'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80'},
   ],
   juices:[
-    {name:'Mint Margrita',price:250,desc:'Fresh mint, lime, sugar syrup, crushed ice — utterly refreshing.',img:'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80'},
-    {name:'Pineapple Mojito',price:350,desc:'Fresh pineapple, mint, lime, sparkling water — tropical and fizzy.',img:'https://images.unsplash.com/photo-1609086587081-5fcd2f01a3ca?w=500&q=80'},
+    {name:'Mint Margrita',price:250,desc:'Fresh mint, lime, sugar syrup, crushed ice — utterly refreshing.',img:'https://kimi-web-img.moonshot.cn/img/www.ambitiouskitchen.com/9b79c6d5e32848517e1769ddae69fd04689feed4.jpg'},
+    {name:'Pineapple Mojito',price:350,desc:'Fresh pineapple, mint, lime, sparkling water — tropical and fizzy.',img:'https://kimi-web-img.moonshot.cn/img/www.allrecipes.com/450140a5c66bed4c0e77eb9f5960e987aff6e990.jpg'},
   ],
 };
 
@@ -619,25 +663,21 @@ const TABS = [
 ];
 
 const DEALS_TOP = [
-  {num:1,title:'Deal 1',items:'1 Burger + 1 Fries + 1-Ltr Drink',price:790,badge:'POPULAR',img:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80'},
-  {num:2,title:'Deal 2',items:'2 Persons: 2 Burgers + Fries + 1-Ltr Drink',price:1050,badge:'VALUE',img:'https://images.unsplash.com/photo-1550317138-10000687a72b?w=600&q=80'},
-  {num:3,title:'Deal 3',items:'1 Wrap + Fries + 345ml Drink',price:700,img:'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=600&q=80'},
-  {num:4,title:'Deal 4',items:'1 Sandwich + Loaded Fries + 345ml Drink',price:799,img:'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=80'},
+  {num:1,title:'Deal 1',items:'1 Burger + 1 Fries + 1-Ltr Drink',price:790,badge:'POPULAR',img:'https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/a527456cf3bbfc42b70ae851be3cf119090936c3.jpg'},
+  {num:2,title:'Deal 2',items:'2 Persons: 2 Burgers + Fries + 1-Ltr Drink',price:1050,badge:'VALUE',img:'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=700&q=85'},
+  {num:3,title:'Deal 3',items:'1 Wrap + Fries + 345ml Drink',price:700,img:'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=700&q=85'},
+  {num:4,title:'Deal 4',items:'1 Sandwich + Loaded Fries + 345ml Drink',price:799,img:'https://kimi-web-img.moonshot.cn/img/somethingaboutsandwiches.com/f7dc7cabd2293e9a32a8f5c4f69435d134876bca.jpg'},
 ];
 
 const ALL_DEALS = [
-  {num:5,title:'Deal 5',items:'1 Veg Pizza (S) + 1 Fries + 2-Ltr Drink',price:1550,img:'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=80'},
-  {num:6,title:'Deal 6',items:'1 Pizza (S) + 1-Ltr Drink',price:700,img:'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80'},
-  {num:7,title:'Deal 7',items:'2 Vegan Pizza (S) + 2-Ltr Drink',price:2100,img:'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80'},
-  {num:8,title:'Deal 8',items:'2 Medium Pizzas + 2-Ltr Drink',price:2450,img:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&q=80',badge:'FAMILY'},
-  {num:9,title:'Deal 9',items:'1 Pizza (S) + Italian Club Sandwich',price:775,img:'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500&q=80'},
-  {num:10,title:'Deal 10',items:'2 Burgers + Fries + 2 Drinks',price:100,note:'Rs.100 off',img:'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&q=80',badge:'SAVE Rs.100'},
-  {num:11,title:'Deal 11',items:'2 Large Pizzas + 2-Ltr Drink + 2 Sauces',price:3499,img:'https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=500&q=80',badge:'MEGA'},
-  {num:12,title:'Couple Deal',items:'1 Smash Beef + 1 Wrap + Fries + 2 Drinks',price:1700,img:'https://images.unsplash.com/photo-1586816001966-79b736744398?w=500&q=80',badge:'COUPLE'},
-  {num:13,title:'Family Deal',items:'2 Large Pizzas + 4 Burgers + 1.5L Drink + Bread',price:4750,img:'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=80',badge:'FAMILY'},
-  {num:14,title:'Arabic Combo',items:'2 Arabic Shawarma + 2 Drinks',price:1250,img:'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=500&q=80'},
-  {num:15,title:'Pizza Party',items:'3 Medium Pizzas + 2-Ltr Drink + Garlic Bread',price:3299,img:'https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=500&q=80'},
-  {num:16,title:'Shawarma Box',items:'4 Arabic Chicken Shawarma + 2 Drinks',price:2099,img:'https://images.unsplash.com/photo-1561651823-35f70a5bdaec?w=500&q=80'},
+  {num:5,title:'Deal 5',items:'2 Large Pizzas + 1 Fries + 1-1.5ltr Drink',price:2950,img:'https://kimi-web-img.moonshot.cn/img/img.freepik.com/5cc4ca6283630359b2f6c00789e4a6b553b0da2b.jpg'},
+  {num:6,title:'Deal 6',items:'1 Small Pizza + 2 Wraps + 1 Fries + 1-Liter Drink',price:1850,img:'https://kimi-web-img.moonshot.cn/img/img-global.cpcdn.com/a17bc84c9e17d25e7427d1bdd6c182401361fb63.jpg'},
+  {num:7,title:'Couple Deal',items:'1 Med Pizza + 1 Burger + 1 Wrap + 1 Fries + 1-Liter Drink',price:2100,img:'https://kimi-web-img.moonshot.cn/img/static.tossdown.com/fcf4176284042e202c80a5cf35d3f7dbe9fd8484.webp'},
+  {num:8,title:'Manjjo Family Deal',items:'1 Large Pizza + 2 Burgers + 2 Wraps + 2 Sandwich + 1 Large Fries + 2-1.5Ltr Drinks',price:4750,img:'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&q=80',badge:'FAMILY'},
+  {num:9,title:'Deal 9',items:'1 Small Pizza + 1-500ml Drink + 2 Garlic Breads',price:775,img:'https://kimi-web-img.moonshot.cn/img/assets3.thrillist.com/0fac09bb31cd75bcdf6bc8756b0c9e9ad76c37fa.jpg'},
+  {num:10,title:'Deal 10',items:'2 Medium Pizza + 2 Lime Drinks + 2 Spin Roll or Breads',price:2450,img:'https://kimi-web-img.moonshot.cn/img/www.a2zshoppy.com/c864612226f9337176e73ac1d141979729d90fbc'},
+  {num:11,title:'Deal 11',items:'2 Large Pizza + 1 Cheese Stick + 1.5 Liter Drink',price:3100,img:'https://kimi-web-img.moonshot.cn/img/lolvepczubmszvavrpom.supabase.co/d7a3e48a070aa7e8015c277c6fa937b55198c01a.webp',badge:'MEGA'},
+  {num:12,title:'Deal 12',items:'1 Italian Club Sandwich + 2 Garlic Bread + 1 Spin Roll + 1-345ml Coke',price:899,img:'https://kimi-web-img.moonshot.cn/img/potatorolls.com/1ca0fe9aa67052471e1050c082d0edc4b5dc1861.jpg'},
 ];
 
 /* ═══ CART STATE ═══ */
@@ -697,20 +737,19 @@ function initHeroAuto() { autoSlide = setInterval(nextSlide, 5000); }
 function buildDealsTop() {
   const grid = document.getElementById('vd-grid');
   grid.innerHTML = DEALS_TOP.map(d => `
-    <div class="card fade-up">
-      <div style="position:relative;overflow:hidden;">
-        <img src="${d.img}" alt="${d.title}" style="width:100%;height:200px;object-fit:cover;display:block;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 55%);"></div>
-        ${d.badge ? `<div style="position:absolute;top:12px;left:12px;background:#D4AF37;color:#000;font-size:.6rem;font-weight:800;padding:4px 10px;border-radius:9999px;letter-spacing:.1em;">${d.badge}</div>` : ''}
-        <div style="position:absolute;bottom:12px;left:14px;right:14px;">
-          <div style="font-family:'Bebas Neue',cursive;font-size:1.6rem;color:#fff;letter-spacing:.08em;line-height:1.1;">Deal ${d.num}</div>
-        </div>
+    <div class="food-card fade-up">
+      <div class="food-card-media">
+        <img src="${d.img}" alt="${d.title}" loading="lazy">
+        <div class="food-card-shade"></div>
+        ${d.badge ? `<div class="food-badge">${d.badge}</div>` : ''}
+        <div class="food-deal-title">Deal ${d.num}</div>
+        <div class="food-brand">MANJJO</div>
       </div>
-      <div style="padding:16px;">
-        <p style="color:#555;font-size:.78rem;line-height:1.7;margin-bottom:14px;">${d.items}</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <div style="font-family:'Oswald',sans-serif;font-size:1.2rem;font-weight:700;color:#D4AF37;">Rs.${d.price.toLocaleString()}</div>
-          <button class="btn-add" style="width:auto;padding:9px 16px;border-radius:8px;" onclick="addToCart('${d.title}: ${d.items.replace(/'/g,"\\'")}',${d.price})">+ Add</button>
+      <div class="food-card-body">
+        <p class="food-desc">${d.items}</p>
+        <div class="food-card-footer">
+          <div class="food-price">Rs.${d.price.toLocaleString()}</div>
+          <button class="food-add" onclick="addToCart('${d.title}: ${d.items.replace(/'/g,"\\'")}',${d.price})">+ Add</button>
         </div>
       </div>
     </div>
@@ -720,20 +759,19 @@ function buildDealsTop() {
 function buildAllDeals() {
   const grid = document.getElementById('all-deals-grid');
   grid.innerHTML = ALL_DEALS.map(d => `
-    <div style="background:#0f0f0f;border:1px solid #1c1c1c;border-radius:16px;overflow:hidden;transition:all .35s;cursor:pointer;" class="card fade-up" onmouseover="this.style.borderColor='rgba(212,175,55,.45)'" onmouseout="this.style.borderColor='#1c1c1c'">
-      <div style="position:relative;overflow:hidden;">
-        <img src="${d.img}" alt="${d.title}" style="width:100%;height:160px;object-fit:cover;display:block;">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 55%);"></div>
-        ${d.badge ? `<div style="position:absolute;top:10px;left:10px;background:#D4AF37;color:#000;font-size:.58rem;font-weight:800;padding:3px 9px;border-radius:9999px;">${d.badge}</div>` : ''}
-        <div style="position:absolute;bottom:10px;left:12px;">
-          <div style="font-family:'Bebas Neue',cursive;font-size:1.4rem;color:#fff;letter-spacing:.08em;">${d.title}</div>
-        </div>
+    <div class="food-card fade-up">
+      <div class="food-card-media" style="height:185px;">
+        <img src="${d.img}" alt="${d.title}" loading="lazy">
+        <div class="food-card-shade"></div>
+        ${d.badge ? `<div class="food-badge" style="font-size:.58rem;padding:7px 14px;">${d.badge}</div>` : ''}
+        <div class="food-deal-title" style="font-size:1.75rem;">${d.title}</div>
+        <div class="food-brand" style="font-size:1.72rem;">MANJJO</div>
       </div>
-      <div style="padding:14px;">
-        <p style="color:#444;font-size:.75rem;line-height:1.65;margin-bottom:12px;">${d.items}</p>
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-          <div style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:#D4AF37;">Rs.${d.price.toLocaleString()}</div>
-          <button class="btn-add" style="width:auto;padding:8px 14px;border-radius:8px;font-size:.72rem;" onclick="addToCart('${d.title}',${d.price})">+ Add</button>
+      <div class="food-card-body" style="padding:15px 16px 16px;">
+        <p class="food-desc" style="font-size:.78rem;margin-bottom:17px;">${d.items}</p>
+        <div class="food-card-footer">
+          <div class="food-price" style="font-size:1.72rem;">Rs.${d.price.toLocaleString()}</div>
+          <button class="food-add" style="min-width:70px;padding:11px 13px;font-size:.72rem;" onclick="addToCart('${d.title.replace(/'/g,"\\'")}: ${d.items.replace(/'/g,"\\'")}',${d.price})">+ Add</button>
         </div>
       </div>
     </div>
@@ -766,18 +804,21 @@ function renderMenu(key) {
   document.getElementById('menu-content').innerHTML = items.map((item, idx) => {
     const hasSizes = item.sizes && typeof item.sizes === 'object';
     const cardId = `pizza-card-${key}-${idx}`;
+    const safeName = item.name.replace(/'/g,"\\'");
     
     if (hasSizes) {
       const sizeKeys = Object.keys(item.sizes);
       return `
-        <div class="card" style="display:flex;flex-direction:column;" id="${cardId}">
-          <div style="position:relative;overflow:hidden;">
-            <img src="${item.img}" alt="${item.name}" style="width:100%;height:170px;object-fit:cover;display:block;" loading="lazy">
-            ${item.badge ? `<div style="position:absolute;top:10px;right:10px;background:#D4AF37;color:#000;font-size:.58rem;font-weight:800;padding:3px 9px;border-radius:9999px;">${item.badge}</div>` : ''}
+        <div class="food-card menu-style" style="display:flex;flex-direction:column;" id="${cardId}">
+          <div class="food-card-media">
+            <img src="${item.img}" alt="${item.name}" loading="lazy">
+            <div class="food-card-shade"></div>
+            ${item.badge ? `<div class="food-badge" style="font-size:.56rem;padding:7px 13px;left:12px;top:12px;">${item.badge}</div>` : ''}
+            <div class="food-item-title">${item.name}</div>
+            <div class="food-brand">MANJJO</div>
           </div>
-          <div style="padding:16px;display:flex;flex-direction:column;flex:1;">
-            <div style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:6px;">${item.name}</div>
-            <p style="color:#444;font-size:.75rem;line-height:1.65;flex:1;margin-bottom:10px;">${item.desc}</p>
+          <div class="food-card-body" style="display:flex;flex-direction:column;flex:1;">
+            <p class="food-desc" style="white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:2.8em;margin-bottom:12px;">${item.desc}</p>
             <div class="pizza-sizes">
               ${sizeKeys.map((sz, si) => `
                 <button class="pizza-size-btn${si===0?' active':''}" data-card="${cardId}" data-size="${sz}" data-price="${item.sizes[sz]}" onclick="selectPizzaSize(this,'${cardId}')">
@@ -786,26 +827,28 @@ function renderMenu(key) {
                 </button>
               `).join('')}
             </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;">
-              <div id="${cardId}-price" style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:#D4AF37;">Rs.${item.sizes[sizeKeys[0]]}</div>
-              <button class="btn-add" style="width:auto;padding:8px 14px;border-radius:8px;font-size:.72rem;" onclick="addPizzaToCart('${item.name.replace(/'/g,"\\'")}','${cardId}')">+ Add</button>
+            <div class="food-card-footer" style="margin-top:auto;">
+              <div id="${cardId}-price" class="food-price" style="font-size:1.55rem;">Rs.${item.sizes[sizeKeys[0]]}</div>
+              <button class="food-add" style="min-width:70px;padding:11px 13px;font-size:.72rem;" onclick="addPizzaToCart('${safeName}','${cardId}')">+ Add</button>
             </div>
           </div>
         </div>
       `;
     } else {
       return `
-        <div class="card" style="display:flex;flex-direction:column;">
-          <div style="position:relative;overflow:hidden;">
-            <img src="${item.img}" alt="${item.name}" style="width:100%;height:170px;object-fit:cover;display:block;" loading="lazy">
-            ${item.badge ? `<div style="position:absolute;top:10px;right:10px;background:#D4AF37;color:#000;font-size:.58rem;font-weight:800;padding:3px 9px;border-radius:9999px;">${item.badge}</div>` : ''}
+        <div class="food-card menu-style" style="display:flex;flex-direction:column;">
+          <div class="food-card-media">
+            <img src="${item.img}" alt="${item.name}" loading="lazy">
+            <div class="food-card-shade"></div>
+            ${item.badge ? `<div class="food-badge" style="font-size:.56rem;padding:7px 13px;left:12px;top:12px;">${item.badge}</div>` : ''}
+            <div class="food-item-title">${item.name}</div>
+            <div class="food-brand">MANJJO</div>
           </div>
-          <div style="padding:16px;display:flex;flex-direction:column;flex:1;">
-            <div style="font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;color:#fff;margin-bottom:6px;">${item.name}</div>
-            <p style="color:#444;font-size:.75rem;line-height:1.65;flex:1;margin-bottom:14px;">${item.desc}</p>
-            <div style="display:flex;align-items:center;justify-content:space-between;">
-              <div style="font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:#D4AF37;">Rs.${item.price}</div>
-              <button class="btn-add" style="width:auto;padding:8px 14px;border-radius:8px;font-size:.72rem;" onclick="addToCart('${item.name.replace(/'/g,"\\'")}',${item.price})">+ Add</button>
+          <div class="food-card-body" style="display:flex;flex-direction:column;flex:1;">
+            <p class="food-desc" style="white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:2.8em;">${item.desc}</p>
+            <div class="food-card-footer" style="margin-top:auto;">
+              <div class="food-price" style="font-size:1.55rem;">Rs.${item.price}</div>
+              <button class="food-add" style="min-width:70px;padding:11px 13px;font-size:.72rem;" onclick="addToCart('${safeName}',${item.price})">+ Add</button>
             </div>
           </div>
         </div>
